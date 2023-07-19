@@ -1,0 +1,22 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3%;
+    width: auto;
+}
+.nav{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    padding: auto 0;
+}
+a {
+    margin: auto 0;
+    padding: 0 2%;
+    text-decoration: none;
+}
+
+a:hover{
+    transition: .3s;
+    background-color: rgb(42, 42, 42);
+}
