@@ -2,10 +2,10 @@ header{
     display: flex;
     justify-content: space-between;
     margin: 0 3%;
-    width: auto;
+    width: 100%;
 }
 .nav{
-    width: 40%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     padding: auto 0;

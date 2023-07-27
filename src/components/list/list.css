@@ -1,0 +1,22 @@
+.items-list {
+    background-color: rgb(52, 52, 52);
+    width: 40%;
+    margin: 5% auto 0 3%;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15%;
+    border-radius: 10px;
+    padding: 4%;
+}
+
+.list-item{
+    background-color: rgb(63, 66, 66);
+    margin: 2%;
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.list-item:hover{
+    background-color: rgb(206, 102, 60);
+    color: #051410;
+}

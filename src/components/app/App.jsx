@@ -8,25 +8,31 @@ import StarshipDetails from "../starship-details";
 import Footer from "../footer";
 import Spinner from "../spinner/spinner";
 import SwapiService from "../../services/swapi-service/swapi";
+import "./App.css";
 
 const swapi = new SwapiService();
 
 
 const App = () =>{
-    const [itemList, setItemList] = useState([]);
-
-    useEffect(()=> {
-        swapi.getAllPeople().then((res) => {
-            const names = res.map((item) => item.name);
-            setItemList(names);
+    const [selectedPerson, setSelectedPerson] = useState({
+        selectedPersonId: null,
+    });
+    const {selectedPersonId} = selectedPerson;
+    function onItemSelected (id) {
+        setSelectedPerson({
+            selectedPersonId: id,
         });
-    }, []);
+        console.log(id);
+    };
+  
+    
+
     return(
         <div className="app">
             <Header />
             <RandomItem />
-            <List itemList={itemList}/>
-            <PersonDetails />
+            <List onItemSelected = {onItemSelected} />
+            <PersonDetails selectedPersonId = {selectedPersonId}/>
             <Footer />
         </div>
     );

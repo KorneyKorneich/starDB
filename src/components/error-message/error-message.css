@@ -1,4 +1,4 @@
-.random-item{
+.error-block {
     background-color: rgb(52, 52, 52);
     width: 95%;
     margin: 5% auto 0;
@@ -9,7 +9,6 @@
     border-radius: 10px;
     padding: 4% 0
 }
-
-img{
-    width: 200px;
-};
+.error-message{
+    color: rgb(206, 102, 60);
+}
