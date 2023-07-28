@@ -19,4 +19,10 @@
 .list-item:hover{
     background-color: rgb(206, 102, 60);
     color: #051410;
+    cursor: pointer;
+}
+
+.list-item:active{
+    background-color: rgb(203, 81, 32);
+
 }

@@ -1,34 +1,22 @@
-import React, {useState, useEffect} from "react";
-import SwapiService from "../../services/swapi-service/swapi";
-import Spinner from "../spinner";
+import React from "react";
+import withData from "../hoc-helper";
 import "./list.css";
+import SwapiService from "../../services/swapi-service/swapi";
 
-const List = ({onItemSelected}) => {
-    const swapi = new SwapiService();
+const List = (props) => {
+    const { data } = props;
+    const { onItemSelected, children } = props;
+    const renderItems = (data) => {
 
-    const [itemList, setItemList] = useState({
-        peopleList: null,
-        listLoaded: false,
-    });
-    const { peopleList, listLoaded } = itemList;
-    useEffect(() =>{
-        swapi.getAllPeople()
-        .then((peopleList)=> {
-            setItemList({
-                peopleList,
-                listLoaded:true,
-            });
-        });
-    }, [listLoaded]);
-    
-    const renderItems = (peopleList) => {
-        if(!peopleList) return <Spinner />;
-        return peopleList.map(({id, name})=> {
+        return data.map((item)=> {
+            const { id } = item;
+            const label = children(item);
+
             return(
                 <div className="list-item"
                 key={id}
                 onClick = {() => onItemSelected(id)}>
-                    {name}
+                    {id}. {label}
                 </div>
             );
         });
@@ -36,9 +24,11 @@ const List = ({onItemSelected}) => {
     
     return(
         <ul className="items-list">
-            {renderItems(peopleList)}
+            {renderItems(data)}
         </ul>
     );
 };
 
-export default List;
+
+const {getAllPeople} = new SwapiService;
+export default withData(List, getAllPeople);

@@ -12,8 +12,7 @@ const RandomItem = () => {
         loading: true,
         error: false,
     });
-
-
+    
     const onPlanetLoaded = (planet) => {
         return setPlanetInfo({
             planet,
@@ -60,12 +59,11 @@ const RandomItem = () => {
     );
 };
 
-
 const PlanetView = ({ planet }) => {
 const { id, name, population, rotationPeriod, diameter } = planet;
 return(
     <React.Fragment>
-        <img src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}alt="1111" className="item-img" />
+        <img src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt="1111" className="random-planet-img" />
         <div className="about">
             <h3 className="planet-name">{name}</h3>
             <div className="population">
