@@ -11,8 +11,6 @@ const ItemDetails = ({ selectedItemId, getData, getItemUrl, children }) => {
 
     const { item, image } = itemInfo;
     
-
-    
     const updateItem = () => {
         
         if(!id) {

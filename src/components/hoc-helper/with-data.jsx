@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Spinner from "../spinner";
 
-const withData = (View, getData) => {
+const withData = (View) => {
     return (props) => {
         const [itemData, setData] = useState({
             data: null,
@@ -11,7 +11,7 @@ const withData = (View, getData) => {
         const { data, listLoaded } = itemData;
 
         useEffect(() =>{
-            getData()
+            props.getData()
             .then((data)=> {
                 setData({
                     data,

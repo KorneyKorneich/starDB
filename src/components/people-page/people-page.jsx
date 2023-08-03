@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import List from "../list";
-import PersonDetails from "../item-details";
+import PersonDetails  from "../sw-components/person-details";
 import "./people-page.css";
-import SwapiService from "../../services/swapi-service/swapi";
 import Row from "../row";
-import Record from "../record";
+import { PersonList } from "../sw-components/item-lists";
 
 const PeoplePage = () => {
-    const swapi = new SwapiService();
+
     
     const [selectedPerson, setSelectedPerson] = useState({
         selectedPersonId: null,
@@ -16,23 +14,14 @@ const PeoplePage = () => {
     const {selectedPersonId} = selectedPerson;
 
     const listItem = (
-        <List onItemSelected = {onItemSelected}
-        getData = {swapi.getAllPeople}>
-            {
-                (item) => `${item.name} (${item.birthYear})`
-            }
-        </List>
+        <PersonList onItemSelected = {onItemSelected}>
+            
+        
+        </PersonList>
     );
 
     const personDetails = (
-    <PersonDetails selectedItemId = {selectedPersonId}
-    getData = {swapi.getPerson}
-    getItemUrl = {swapi.getPersonImage}>
-        <Record field = "gender" label = "Gender" />
-        <Record field = "birthYear" label = "Birth Year" />
-        <Record field = "eyeColor" label = "Eye Color" />
-
-    </PersonDetails>
+        <PersonDetails selectedItemId = {selectedPersonId}/>
     );
 
     function onItemSelected (id) {

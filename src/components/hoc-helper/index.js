@@ -1,3 +1,9 @@
 import withData from "./with-data";
+import compose from "./compose";
+import withSwapi from "./with-swapi-service";
 
-export default withData;
+export{
+    withData,
+    compose,
+    withSwapi
+};

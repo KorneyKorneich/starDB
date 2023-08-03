@@ -12,7 +12,7 @@ const RandomItem = () => {
         loading: true,
         error: false,
     });
-    
+
     const onPlanetLoaded = (planet) => {
         return setPlanetInfo({
             planet,
