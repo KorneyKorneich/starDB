@@ -1,5 +1,5 @@
 import React from "react";
-import {withData, compose, withSwapi} from "../hoc-helper";
+import { withData, compose, withSwapi } from "../hoc-helper";
 import List from "../list";
 
 const ListWithChild = (fn) => (Wrapped) => {
@@ -26,16 +26,12 @@ const mapPlanetMethodsToProps = ( swapi ) => {
 
 const mapStarshipMethodsToProps = ( swapi ) => {
     return{
-        getData: swapi.getAllStarhips,
+        getData: swapi.getAllStarships,
     };
 };
 
 const renderName = (item) => `${item.name}`;
 
-// const PersonList = withSwapi(mapPersonMethodsToProps)(
-//                         withData(
-//                             ListWithChild(renderName)(
-//                                 List)));
 const PersonList = compose(
     withSwapi(mapPersonMethodsToProps),
     withData,

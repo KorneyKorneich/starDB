@@ -18,7 +18,7 @@ const withData = (View) => {
                     listLoaded:true,
                 });
             });
-        }, [listLoaded]);
+        }, [listLoaded, props]);
         if(!data) return <Spinner />;
         return(
             <View {...props} data = {data} />

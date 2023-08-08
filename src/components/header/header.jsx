@@ -1,17 +1,18 @@
 import React from "react";
+import { NavLink, Link } from "react-router-dom";
 import "./header.css";
 
 const Header = () =>{
     return (
         <header>
-            <h1 className="log">StarDB</h1>
+            <h1>
+                <Link className="logo" to={"/"}>StarDB</Link>
+            </h1>
             <div className="nav">
-                <a href="#">Planets</a>
-                <a href="#">People</a>
-                <a href="#">Starships</a>
-                <a href="#">About me</a>
+            <NavLink className="NavLink" to={"/planets"}>Planets</NavLink>
+            <NavLink className="NavLink" to={"/people"}>People</NavLink>
+            <NavLink className="NavLink" to={"/starships"}>Starships</NavLink>
             </div>
-
         </header>
     );
 };

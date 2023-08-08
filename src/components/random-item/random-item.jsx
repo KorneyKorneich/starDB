@@ -27,20 +27,21 @@ const RandomItem = () => {
         });
     };
 
-    const updatePlanet = () =>{
-        const randomPlanetId = Math.floor(Math.random() * 12) + 1;
-        swapi.getPlanet(randomPlanetId)
-        .then(onPlanetLoaded)
-        .catch(onError);
-    };
+    
     useEffect(() => {
+        const updatePlanet = () =>{
+            const randomPlanetId = Math.floor(Math.random() * 12) + 1;
+            swapi.getPlanet(randomPlanetId)
+            .then(onPlanetLoaded)
+            .catch(onError);
+        };
         updatePlanet();
         const intervalId = setInterval(
         updatePlanet, 5000);
     return () => {
         clearInterval(intervalId);
       };
-    }, []);
+    }, [ ]);
 
     const {planet, loading, error} = planetInfo;
 

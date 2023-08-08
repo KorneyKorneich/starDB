@@ -11,23 +11,24 @@ const ItemDetails = ({ selectedItemId, getData, getItemUrl, children }) => {
 
     const { item, image } = itemInfo;
     
-    const updateItem = () => {
-        
-        if(!id) {
-            return;
-        };
-        getData(id)
-        .then((res) => {setItemInfo({
-            item: res,
-            image: getItemUrl(id),
-        });
-        console.log(res)
-        });
-    };
+    
 
     useEffect(() => {
+        const updateItem = () => {
+        
+            if(!id) {
+                return;
+            };
+            getData(id)
+            .then((res) => {setItemInfo({
+                item: res,
+                image: getItemUrl(id),
+            });
+            console.log(res)
+            });
+        };
             updateItem(id);
-        }, [selectedItemId]);
+        }, [getData, getItemUrl, id]);
 
         if(!item){
             return;
